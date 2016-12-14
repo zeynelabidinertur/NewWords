@@ -6,13 +6,19 @@
 </head>
 <body>
 
-<ol>
-    {% for key, values in my_entry.items %}
-        <h1>{{ key }}</h1>
+    {% if request.user.username %}
+        <h1>Welcome {{ request.user.username }}</h1>
+        <a href="/users/logout">Logout</a>
+    {% endif %}
 
-        <p> {{ values }} </p>
-    {% endfor %}
-</ol>
+    <ol>
+        {% for entry in entries %}
+            <li>
+                <h1>{{ entry.header }}</h1>
+                <p>{{ entry.body }}</p>
+            </li>
+        {% endfor %}
+    </ol>
 
 </body>
 </html>

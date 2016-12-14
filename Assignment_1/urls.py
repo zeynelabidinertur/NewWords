@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import url, include
+from users.views import show_profile
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^todo/', include('todo.urls')),
     url(r'^blog/', include('blog.urls')),
+    url(r'^users/', include('users.urls')),
+    url(r'profile/', show_profile)
 ]
