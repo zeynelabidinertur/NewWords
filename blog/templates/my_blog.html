@@ -16,9 +16,26 @@
             <li>
                 <h1>{{ entry.header }}</h1>
                 <p>{{ entry.body }}</p>
+                {% for tag in entry.tags.all %}
+                    <font color="#00bfff"> # <i>{{ tag.name }}</i> </font>
+                {% endfor  %}
             </li>
         {% endfor %}
     </ol>
+
+
+<form method="POST">
+    {% csrf_token %}
+    <input name="header">
+    <input name="body">
+    <select name="tag_names" multiple>
+        {% for tag in tags %}
+            <option value="{{ tag.id }}" >{{ tag.name }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
 
 </body>
 </html>

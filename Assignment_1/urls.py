@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^todo/', include('todo.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^users/', include('users.urls')),
-    url(r'profile/', show_profile)
+    url(r'profile/', show_profile),
+    url(r'tags/', include('tags.urls'))
+
 ]
