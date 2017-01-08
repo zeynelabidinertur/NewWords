@@ -5,7 +5,6 @@ from django.db import models
 from tags.models import Tag
 # Create your models here.
 
-
 class Todo(models.Model):
 
     name = models.CharField(max_length=220)

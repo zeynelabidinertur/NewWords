@@ -7,8 +7,7 @@
 <body>
 
 {% if request.user.username %}
-    <h1>Welcome {{ request.user.username }}</h1>
-    <a href="/users/logout">Logout</a>
+    <h1>Welcome {{ request.user.username }}  <a href="/users/logout">Logout</a></h1>
 {% endif %}
 
 <ol>
@@ -17,26 +16,21 @@
             <h1>{{ todo.name }}</h1>
             <p>{{ todo.description }}</p>
             {% for tag in todo.tags.all %}
-                {{ tag.name }}
+                +{{ tag.name }}
             {% endfor  %}
+            <p>&nbsp;&nbsp;&nbsp; written by: {{ todo.owner.username }}</p>
         </li>
     {% endfor %}
-</ol>git commit -m "<message>"
-
-<form method="POST">
-    {% csrf_token %}
-    <input name="todo_name">
-    <input name="description_name">
-    <select name="tag_names" multiple>
-        {% for tag in tags %}
-            <option value="{{ tag.id }}" >{{ tag.name }}</option>
-        {% endfor %}
-    </select>
-
-    <button type="submit">Submit</button>
-</form>
+</ol>
 
 
+{% if form %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+{% endif %}
 
 </body>
 </html>

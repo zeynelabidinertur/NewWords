@@ -7,14 +7,14 @@ from django.contrib.auth.models import User
 
 
 def show_profile(request):
-    return HttpResponseRedirect('/blog')
+    return HttpResponseRedirect("/blog")
 
 
 def signup(request):
 
     if request.method == "POST":
         User.objects.create_user(username=request.POST.get("username"),
-                                 password=request.POST.get("password"))
+                            password=request.POST.get("password"))
         return HttpResponse("Success!")
 
     return render(request, "register.html")
