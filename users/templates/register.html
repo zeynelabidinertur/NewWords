@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Register</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    </head>
+    <body>
+        <h1>Register</h1><br>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group col-lg-3">
+              <label class="control-label" for="focusedInput">Username:</label>
+              <input name="username" class="form-control" id="focusedInput" type="text">
+            </div>
+            <div class="form-group col-lg-3">
+              <label class="control-label" for="focusedInput">Password:</label>
+              <input name="password" class="form-control" id="focusedInput" type="text">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary col-lg-1">Submit</button>
+        </form>
 
 
-<form method="POST">
-    {% csrf_token %}
-    Username: <input name="username"><br>
-    Password: <input type="password" name="password">
-    <button type="submit">Submit</button>
-</form>
-
-
-</body>
+    </body>
 </html>
