@@ -21,7 +21,7 @@ from users.views import show_profile
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^todo/', include('todo.urls')),
-    url(r'^blog/', include('blog.urls')),
+    url(r'^bookshelf/', include('bookshelf.urls')),
     url(r'^users/', include('users.urls')),
     url(r'profile/', show_profile),
     url(r'tags/', include('tags.urls'))

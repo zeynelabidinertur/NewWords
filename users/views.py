@@ -11,10 +11,8 @@ def show_profile(request):
 
 
 def signup(request):
-
     if request.method == "POST":
         User.objects.create_user(username=request.POST.get("username"),
-                            password=request.POST.get("password"))
-        return HttpResponse("Success!")
-
-    return render(request, "register.html")
+                                 password=request.POST.get("password"))
+        return HttpResponseRedirect("../../users/login")
+    return render(request, "sign_in.html")

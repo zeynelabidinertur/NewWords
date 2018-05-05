@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ request.user.username }}'s Library</title>
+</head>
+<body>
+
+{% if request.user.username %}
+    <h1>Welcome {{ request.user.username }}  <a href="/users/logout">Logout</a></h1>
+{% endif %}
+
+<ol>
+    {% for book in books %}
+        <li>
+            <h1>{{ book.name }}</h1>
+            <p>{{ book.description }}</p>
+            {% for tag in todo.tags.all %}
+                +{{ tag.name }}
+            {% endfor  %}
+            <p>&nbsp;&nbsp;&nbsp; written by: {{ todo.owner.username }}</p>
+        </li>
+    {% endfor %}
+</ol>
+
+
+{% if form %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+{% endif %}
+
+</body>
+</html>
