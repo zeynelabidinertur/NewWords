@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 
 def show_profile(request):
-    return HttpResponseRedirect("/blog")
+    return HttpResponseRedirect("/bookshelf")
 
 
 def signup(request):
