@@ -30,10 +30,10 @@
 <ol>
 
     {% for book in books %}
-        <li>
-            <img src="../static/images/book_red.png" width="240">
-            <h1>{{ book.name }}</h1>
-            <p>&nbsp;&nbsp;&nbsp; written by: {{ todo.owner.username }}</p>
+        <li class="col-md-pull-4">
+            <img src="{% static 'images/book_red.png' %}" width="10%" onclick="deleteBook()" href="{{ request.user.username }}">
+{#            <h1>{{ book.name }}</h1>#}
+{#            <p>&nbsp;&nbsp;&nbsp; written by: {{ todo.owner.username }}</p>#}
         </li>
     {% endfor %}
 </ol>
@@ -50,6 +50,9 @@
 </body>
 
 <script>
+    function deleteBook() {
+        console.log("deleted!!!");
+    }
     function openCloseDropdown(button) {
         if ($(button).parent().parent().hasClass('open')){
             console.log("dededed");
